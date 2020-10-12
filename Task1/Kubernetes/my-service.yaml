@@ -1,0 +1,14 @@
+apiVersion: v1 # apiversion type of service
+kind: Service
+metadata:
+  name: my-service  # service name
+  labels:
+    app: my-cicd-project  # deployment lable
+spec:
+  selector:
+    app: my-cicd-project
+  type: LoadBalancer # exposing the service on nodeport 31200
+  ports:
+    - port: 8080
+      targetPort: 8080
+      nodePort: 31200
